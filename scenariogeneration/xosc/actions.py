@@ -2235,7 +2235,9 @@ class ActivateControllerAction(_PrivateActionType):
         animation = None
         lighting = None
         controllerRef = None
-        aca_element = element.find("ControllerAction/ActivateControllerAction")
+        aca_element = (element.find("ControllerAction/ActivateControllerAction") or
+                       element.find("ActivateControllerAction"))
+
         if "lateral" in aca_element.attrib:
             lateral = convert_bool(aca_element.attrib["lateral"])
         if "longitudinal" in aca_element.attrib:
